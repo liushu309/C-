@@ -10,5 +10,4 @@ TiXmlDocument doc;//申明一个文档类型变量，用来存储读取的xml文
 TiXmlElement* root = doc.FirstChildElement();//指向xml文档的根元素
 
 ### 3. 获取当前元素的值
-TiXmlNode* node = elem->FirstChild();//node指向elem1元素下的文本
-cout << node->Value() << endl;
+TiXmlNode* node = elem->FirstChild();//node指向elem1元素下的文本  cout << node->Value() << endl;
