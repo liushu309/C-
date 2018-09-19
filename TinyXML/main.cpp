@@ -1,37 +1,40 @@
 
-#include "tinyxml.h"
 #include <iostream>
 #include <string>
+#include "tinyxml2.h"
+
 using namespace std;
+using namespace tinyxml2;
 void loadXML() {
-    TiXmlDocument doc;//ÉêÃ÷Ò»¸öÎÄµµÀàÐÍ±äÁ¿£¬ÓÃÀ´´æ´¢¶ÁÈ¡µÄxmlÎÄµµ
-    if (!doc.LoadFile("XMLFile.xml"))	//¼ì²âxmlÎÄµµÊÇ·ñ´æÔÚ
+    XMLDocument doc;//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½È¡ï¿½ï¿½xmlï¿½Äµï¿½
+    if (!doc.LoadFile("XMLFile.xml"))	//ï¿½ï¿½ï¿½xmlï¿½Äµï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
     {
-        cerr << doc.ErrorDesc() << endl;
+        // cerr << doc.ErrorDesc() << endl;
+        std::cout << "cound not open file!" << std::endl;
     }
-    TiXmlElement* root = doc.FirstChildElement();//Ö¸ÏòxmlÎÄµµµÄ¸ùÔªËØ
-    if (root == NULL)//¼ì²â¸ùÔªËØ´æÔÚÐÔ		
+    XMLElement* root = doc.FirstChildElement();//Ö¸ï¿½ï¿½xmlï¿½Äµï¿½ï¿½Ä¸ï¿½Ôªï¿½ï¿½
+    if (root == NULL)//ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½		
     {
         cerr << "Failed to load file: No root element." << endl;
         doc.Clear();
     }
-    //elemÖ¸Ïò¸ùµÄµÚÒ»¸öº¢×ÓÔªËØ
-    for (TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
-        const char* arr = elem->Attribute("priority"); //Í¨¹ýÔªËØÊôÐÔÑ°ÕÒÔªËØ
+    //elemÖ¸ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+    for (XMLElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
+        const char* arr = elem->Attribute("priority"); //Í¨ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½Ôªï¿½ï¿½
         //if (strcmp(arr, "1") == 0) {
         //    TiXmlElement* elem1 = elem->FirstChildElement();
-        //    TiXmlNode* node = elem1->FirstChild();//nodeÖ¸Ïòelem1ÔªËØÏÂµÄÎÄ±¾
+        //    TiXmlNode* node = elem1->FirstChild();//nodeÖ¸ï¿½ï¿½elem1Ôªï¿½ï¿½ï¿½Âµï¿½ï¿½Ä±ï¿½
         //    cout << node->Value() << endl;
         //}
 
         if (strcmp(arr, "2") == 0) {
             //TiXmlElement* elem1 = elem->FirstChildElement();
-            TiXmlNode* node = elem->FirstChild();//nodeÖ¸Ïòelem1ÔªËØÏÂµÄÎÄ±¾
+            XMLNode* node = elem->FirstChild();//nodeÖ¸ï¿½ï¿½elem1Ôªï¿½ï¿½ï¿½Âµï¿½ï¿½Ä±ï¿½
             cout << node->Value() << endl;
         }
 
-        if (strcmp(elem->Value(), "Item1") == 0) { //Ò²¿ÉÒÔÍ¨¹ýÔªËØÃûÑ°ÕÒÔªËØ
-            TiXmlNode* node = elem->FirstChild();
+        if (strcmp(elem->Value(), "Item1") == 0) { //Ò²ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½Ôªï¿½ï¿½
+            XMLNode* node = elem->FirstChild();
             cout << node->Value() << endl;
         }
     }
