@@ -13,6 +13,7 @@
     XMLElement* certen_elemant = doc.FirstChildElement("liushu");//指向xml文档的某个元素
 
 ### 3. 获取当前元素的值
-    XMLlNode* node = elem->FirstChild();//node指向elem1元素下的文本  cout << node->Value() << endl;
+    XMLlNode* node = elem->FirstChild();//node指向elem1元素下的文本  
+    cout << node->Value() << endl;
 
 
