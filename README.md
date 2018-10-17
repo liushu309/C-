@@ -6,4 +6,7 @@
 从txt文件中，读取double变量
 ### PrintfWithColor
 在终端打印颜色文字
+### InputAndOutput
+终端输入输出字符串长度计算
+
 
