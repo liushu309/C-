@@ -1,5 +1,6 @@
 ## C++中的纯虚函数
 在C++中的一种函数申明被称之为：纯虚函数(pure virtual function).它的申明格式如下：
+
     class CShape
     {
     public:
